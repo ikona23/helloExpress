@@ -5,13 +5,13 @@
 var test = require('tape')
 var routes = require('./routes')
 
-test('routes.home responds with index.html', function (t) {
-  var res = { sendFile: sendFile }
+test('routes.index responds with Hello world', function (t) {
+  var res = { send: send }
 
   routes.index(null, res)
 
-  function sendFile (file) {
-    t.equals(file, 'index.html')
+  function send (msg) {
+    t.equals(msg, '<h1>Hello world</h1>')
     t.end()
   }
 })

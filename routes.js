@@ -3,9 +3,12 @@
  */
 
 module.exports = {
-  index: index
+  home: home
 }
-
-function index (req, res) {
-  res.send('<h1>Hello world</h1>')
+app.get('/about', function (req, res) {
+  res.send('about');
+});
+function home (req, res) {
+  res.sendFile(__dirname + '/index.html')
+    res.render('home', { title: 'Ninja Store' })
 }
